@@ -1,0 +1,12 @@
+<form [formGroup]="formModel">
+  <md-toolbar class="form-toolbar">
+
+    <md-form-field>
+      <input mdInput placeholder="请输入操作人" formControlName="keyWord">
+    </md-form-field>
+
+    <button md-button type="button" (click)="search()" color="primary">搜索</button>
+    <span class="example-spacer"></span>
+  </md-toolbar>
+</form>
+<app-table [IN]="IN" (OUT)="OUT($event)"></app-table>

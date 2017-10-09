@@ -1,0 +1,107 @@
+@import './import/colors';
+$silver:lighten($silver, 20%);
+table.data {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-color: transparent;
+  background-color: $white;
+  tr,
+  tbody,
+  thead,
+  tfoot {
+    width: 100%;
+  }
+  thead tr {
+    height: 50px;
+  }
+  th,
+  td {
+    vertical-align: middle;
+    text-align: left;
+    padding: 0.5em 2em;
+    height: 40px;
+    word-wrap: normal;
+    &.center {
+      text-align: center
+    }
+  }
+  tr {
+    background-color: transparent;
+  }
+  th {
+    color: #757575;
+    border-bottom: 1px solid $silver;
+  }
+}
+
+table.border {
+  th,
+  td {
+    border: 1px solid $silver;
+  }
+}
+
+table.border-v {
+  td {
+    border-bottom: 1px solid $silver;
+  }
+  th {
+    border-bottom-width: 2px;
+  }
+}
+
+table.border-h {
+  th:not(:first-child),
+  td:not(:first-child) {
+    border-left: 1px solid $silver;
+  }
+  th {
+    border-bottom-color: transparent;
+  }
+}
+
+table.fixed {
+  table-layout: fixed;
+}
+
+table.shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+}
+
+table.autoWidth {
+  width: auto;
+}
+
+table.spacing {
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+$table_color_map:( grey: lighten($grey, 35%));
+@each $item in $table_color_map {
+  $k: nth($item, 1);
+  $v: nth($item, 2);
+  table.striped-#{$k} {
+    tbody tr:nth-child(odd) {
+      background-color: $v;
+    }
+    &.hover {
+      tbody tr {
+        transition: background-color 0.3s ease;
+        &:hover {
+          background-color: darken($v, 2%);
+        }
+      }
+    }
+  }
+  &.hover-#{$k} {
+    tbody tr {
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: darken($v, 2%);
+      }
+    }
+  }
+}

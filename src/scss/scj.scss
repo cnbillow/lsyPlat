@@ -1,0 +1,67 @@
+@import './import/base';
+@import './display';
+@import './links';
+@import './table';
+@import './text-ellipsis';
+@import './collapsible';
+@import './nav';
+@import './star-rating';
+@import './_loading';
+@import './_quill.snow';
+label {
+  display: inline-block;
+  cursor: default;
+  &[for] {
+    cursor: pointer;
+  }
+}
+
+.star-container {
+  outline: none;
+}
+
+.fieldset {
+  border: 1px solid #cacaca;
+  display: block;
+  width: 100%;
+  >label {
+    line-height: 2.5em;
+  }
+}
+
+.fieldset legend {
+  margin: 0;
+  margin-left: -0.1875em;
+  padding: 0 0.1875em;
+  background: #fefefe;
+  color: #666;
+  font-size: 14px;
+}
+
+.toggles .mit-city-select .list-menu,
+.city-address .mit-city-select .list-menu {
+  position: fixed !important;
+}
+
+.mat-input-infix {
+  .datepicker-clear {
+    position: absolute;
+    right: 0px;
+    bottom: 8px;
+    display: none;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transform: scale(0.6);
+  }
+  &:hover {
+    .datepicker-clear {
+      display: inline-block;
+    }
+  }
+}
+
+.mat-select-trigger {
+  font-size: 14px !important
+}

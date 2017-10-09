@@ -1,0 +1,39 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <input class='fn-hide' type="text" />
+  <input class='fn-hide' type="password" />
+  <md-dialog-content style="width: 40em;">
+    <md-list>
+      <md-list-item>
+        <label class="key">用户名</label>
+        <md-form-field class="full-width">
+          <input autocomplete="off" mdInput formControlName="username">
+          <md-error>
+            请输入用户名
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item *ngIf="isAdd">
+        <label class="key">密码</label>
+        <md-form-field class="full-width">
+          <input autocomplete="off" type="password" mdInput formControlName="password">
+          <md-error>
+            请输入密码,数字和字母的组合
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">角色</label>
+        <md-select formControlName="roleId" placeholder="--选择角色--">
+          <md-option *ngFor="let role of roles" [value]="role.id">
+            {{ role.name }}
+          </md-option>
+        </md-select>
+      </md-list-item>
+    </md-list>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <span class="example-spacer"></span>
+    <button [disabled]="formModel.invalid" md-raised-button color="primary">确定</button>
+    <button type="button" md-button md-dialog-close>取消</button>
+  </md-dialog-actions>
+</form>

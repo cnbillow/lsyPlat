@@ -1,0 +1,23 @@
+%text-over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-over {
+  @extend %text-over;
+}
+
+%text-line {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+$line-map: (1, 2, 3, 4, 5);
+@each $k in $line-map {
+  .text-line-#{$k} {
+    @extend %text-line;
+    -webkit-line-clamp: $k;
+  }
+}

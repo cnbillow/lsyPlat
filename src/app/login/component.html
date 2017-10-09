@@ -1,0 +1,37 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-card class="form">
+    <md-card-header>
+      <div md-card-avatar class="logo"><img src="./assets/img/logo2.png" alt="logo" style="width:100px;margin-left: 40px"></div>
+      <md-card-subtitle>
+        <h3>连锁易后台管理系统</h3>
+      </md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <md-list>
+        <md-list-item class="list">
+          <label style="width: 6em;" class="key">用户名</label>
+          <md-form-field class="full-width">
+            <input mdInput formControlName="usernameControl">
+            <md-icon mdSuffix>person</md-icon>
+            <md-error>
+              请输入用户名
+            </md-error>
+          </md-form-field>
+        </md-list-item>
+        <md-list-item class="list">
+          <label style="width: 6em;" class="key">密码</label>
+          <md-form-field class="full-width">
+            <input mdInput type="password" formControlName="passwordControl">
+            <md-icon mdSuffix>lock_outline</md-icon>
+            <md-error>
+              请输入密码,位数至少是6,数字与字母的组合
+            </md-error>
+          </md-form-field>
+        </md-list-item>
+        <md-list-item class="list"> <button type="submit" md-raised-button [disabled]="formModel.invalid" style="width: 100%;" color="primary">登录</button></md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+</form>
+<app-background></app-background>
+<app-loading></app-loading>

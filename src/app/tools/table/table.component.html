@@ -1,0 +1,87 @@
+<div class="example-container mat-elevation-z8">
+
+  <table class="data striped-grey hover">
+    <thead>
+      <tr>
+        <th class="min"></th>
+        <th *ngFor="let column of IN?.displayedColumns" [class.min]="columnClass(column.k)">
+          <div *ngIf="!IN?.moreItems.length && !IN?.rowCheckbox && !IN?.rowRadio">
+            <span>{{column.v}}</span>
+          </div>
+          <div *ngIf="IN?.rowRadio && !IN?.moreItems.length">
+            <span *ngIf="column.k!='radio'">{{column.v}}</span>
+            <span *ngIf="column.k=='radio'">{{column.v}}</span>
+          </div>
+          <div *ngIf="IN?.rowCheckbox  && !IN?.moreItems.length">
+            <span *ngIf="column.k!='checkbox'">{{column.v}}</span>
+            <md-checkbox color="primary" *ngIf="column.k=='checkbox' && IN?.dataSource.length" [(ngModel)]="checkeds" (change)="checkboxChange($event,'head')"></md-checkbox>
+          </div>
+          <div *ngIf="IN?.moreItems.length&& !IN?.rowRadio && !IN?.rowCheckbox">
+            <span *ngIf="column.k!='more'">{{column.v}}</span>
+          </div>
+          <div *ngIf="IN?.rowRadio && IN?.moreItems.length">
+            <span *ngIf="column.k=='radio'">{{column.v}}</span>
+            <span *ngIf="column.k!='radio' && column.k!='more'">{{column.v}}</span>
+          </div>
+          <div *ngIf="IN?.rowCheckbox && IN?.moreItems.length">
+            <md-checkbox color="primary" *ngIf="column.k=='checkbox' && IN?.dataSource.length" [(ngModel)]="checkeds" (change)="checkboxChange($event,'head')"></md-checkbox>
+            <span *ngIf="column.k!='checkbox' && column.k!='more'">{{column.v}}</span>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of IN?.dataSource;let _index_=index">
+        <td style="color: #999;">{{_index_+1}}</td>
+        <td *ngFor="let column of IN?.displayedColumns">
+          <div *ngIf="!IN?.moreItems.length && !IN?.rowCheckbox && !IN?.rowRadio">
+            <span>{{row[column.k] || '--' }}</span>
+          </div>
+          <div *ngIf="IN?.rowRadio && !IN?.moreItems.length">
+            <span *ngIf="column.k!='radio'">{{row[column.k] || '--' }}</span>
+            <md-icon *ngIf="column.k=='radio' && row.checked" color="primary">radio_button_checked</md-icon>
+            <md-icon *ngIf="column.k=='radio' && !row.checked">radio_button_unchecked</md-icon>
+          </div>
+          <div *ngIf="IN?.rowCheckbox && !IN?.moreItems.length">
+            <span *ngIf="column.k!='checkbox'">{{row[column.k] || '--' }}</span>
+            <md-checkbox color="primary" *ngIf="column.k=='checkbox'" [(ngModel)]="row.checked" (change)="checkboxChange($event,row)"></md-checkbox>
+          </div>
+          <div *ngIf="IN?.moreItems.length && !IN?.rowRadio && !IN?.rowCheckbox">
+            <span *ngIf="column.k!='more'">{{row[column.k] || '--' }}</span>
+            <button *ngIf="column.k=='more' && (IN?.moreItems | filterAdminValid:row)?.length" md-icon-button [mdMenuTriggerFor]="rowMenu"><md-icon>more_horiz</md-icon></button>
+            <md-menu [overlapTrigger]="false" #rowMenu="mdMenu">
+              <button md-menu-item *ngFor="let item of IN?.moreItems  | filterValid:row | filterPublishValid:row  " (click)="moreItem(item.k,row)"> {{item.v}} </button>
+            </md-menu>
+          </div>
+          <div *ngIf="IN?.rowRadio && IN?.moreItems.length">
+            <span *ngIf="column.k!='radio' && column.k!='more'">{{row[column.k] || '--' }}</span>
+            <md-icon *ngIf="column.k=='radio' && row.checked" color="primary">radio_button_checked</md-icon>
+            <md-icon *ngIf="column.k=='radio' && !row.checked">radio_button_unchecked</md-icon>
+            <button *ngIf="column.k=='more' && (IN?.moreItems | filterAdminValid:row)?.length" md-icon-button [mdMenuTriggerFor]="rowMenu"><md-icon>more_horiz</md-icon></button>
+            <md-menu [overlapTrigger]="false" #rowMenu="mdMenu">
+              <button md-menu-item *ngFor="let item of IN?.moreItems  | filterValid:row | filterPublishValid:row " (click)="moreItem(item.k,row)"> {{item.v}} </button>
+            </md-menu>
+          </div>
+          <div *ngIf="IN?.rowCheckbox && IN?.moreItems.length">
+            <span *ngIf="column.k!='checkbox' && column.k!='more'">{{row[column.k] || '--' }}</span>
+            <md-checkbox color="primary" *ngIf="column.k=='checkbox'" [(ngModel)]="row.checked" (change)="checkboxChange($event,row)"></md-checkbox>
+            <button *ngIf="column.k=='more' && (IN?.moreItems | filterAdminValid:row)?.length" md-icon-button [mdMenuTriggerFor]="rowMenu"><md-icon>more_horiz</md-icon></button>
+            <md-menu [overlapTrigger]="false" #rowMenu="mdMenu">
+              <button md-menu-item *ngFor="let item of IN?.moreItems | filterValid:row | filterPublishValid:row " (click)="moreItem(item.k,row)"> {{item.v}} </button>
+            </md-menu>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="IN?.dataSource.length==0">
+        <td *ngIf="this.IN?.pageTotal==0" [attr.colspan]="IN?.displayedColumns.length+1" class="center">
+          <img style="margin:1em;width: 10em;" src="./assets/img/nodata.png" alt="">
+        </td>
+        <td *ngIf="this.IN?.pageTotal==-1" [attr.colspan]="IN?.displayedColumns.length+1" class="center">
+          <p style="margin:1em;color: #999;">{{IN?.errorMsg}}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <md-paginator [length]="this.IN?.pageTotal" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[10, 30, 50,100]" (page)="pageTor($event)">
+  </md-paginator>
+</div>

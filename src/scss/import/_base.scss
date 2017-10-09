@@ -1,0 +1,35 @@
+// base
+html {
+  font-family: 'microsoft yahei', 'helvetica neue', 'hiragino sans gb', 'stheiti';
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  color: #333;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+body,
+ul,
+ol,
+input[type='radio'],
+input[type='checkbox'] {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-type: none;
+}

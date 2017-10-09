@@ -1,0 +1,13 @@
+<form [formGroup]="formModel">
+  <md-toolbar class="form-toolbar">
+
+    <md-form-field>
+      <input mdInput placeholder="请输入用户名" formControlName="username">
+    </md-form-field>
+
+    <button md-button type="button" (click)="search()" color="primary">搜索</button>
+    <span class="example-spacer"></span>
+    <button md-raised-button type="button" (click)="add()" color="primary">新增账户</button>
+  </md-toolbar>
+</form>
+<app-table [IN]="IN" (OUT)="OUT($event)"></app-table>

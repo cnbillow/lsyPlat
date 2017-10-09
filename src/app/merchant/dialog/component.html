@@ -1,0 +1,37 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-dialog-content style="overflow:visible">
+    <md-list>
+      <md-list-item>
+        <label class="key">用户信息</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="keyWord" placeholder="请输入公司名称/姓名/联系手机">
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">到期时间</label>
+        <app-date [IN]="dateInit1" (OUT)="dateChange($event,1)"></app-date>
+      </md-list-item>
+      <br>
+      <md-list-item>
+        <label class="key">注册时间</label>
+        <app-date [IN]="dateInit2" (OUT)="dateChange($event,2)"></app-date>
+      </md-list-item>
+      <md-list-item>
+        <md-select formControlName="valid" placeholder="--状态--">
+          <md-option *ngFor="let valid of valids" [value]="valid.k">
+            {{ valid.v }}
+          </md-option>
+        </md-select>
+        <span class="example-spacer"></span>
+        <button type="button" style="margin-top: 20px;" md-icon-button (click)="undo()" color="accent"><md-icon>undo</md-icon></button>
+      </md-list-item>
+    </md-list>
+
+  </md-dialog-content>
+  <br>
+  <md-dialog-actions>
+    <span class="example-spacer"></span>
+    <button [disabled]="formModel.invalid" md-raised-button color="primary">确定</button>
+    <button type="button" md-button md-dialog-close>取消</button>
+  </md-dialog-actions>
+</form>

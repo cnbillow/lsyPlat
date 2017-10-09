@@ -1,0 +1,41 @@
+<md-sidenav-container class="container">
+  <md-sidenav #sidenav mode="side" [opened]="navOpened" class="sidenav">
+    <div class="example-scrolling-content">
+      <div class="m-logo m-logo-top"><img src="./assets/img/logo.png" alt="logo"></div>
+
+
+      <!-- slidebar S -->
+      <nav class="nav-vertical">
+        <div class="nav-collapsible" *ngFor="let menu of menus;let i = index">
+          <input *ngIf="!menu.url" type="checkbox" id="nav-collapsible-{{i}}" (change)="changeGroup(group)" #group>
+          <label for="nav-collapsible-{{i}}" [class.labelSinge]="menu.url">
+                <span *ngIf="!menu.url" >{{menu.label}}</span>
+                <a href="javascript:void(0)" [class.current]="menu.cur"  *ngIf="menu.url" (click)="link(menu)">{{menu.label}}</a>
+              </label>
+          <div class="nav-collapsible-{{i}}-area" *ngIf="!menu.url">
+            <a href="javascript:void(0)" *ngFor="let child of menu.childs" [class.current]="child.cur" (click)="link(child)">{{child.label}}</a>
+          </div>
+        </div>
+      </nav>
+      <!-- slidebar N -->
+
+    </div>
+  </md-sidenav>
+  <div class="sidenav-content">
+
+
+    <!-- headtoolbar S -->
+    <md-toolbar class="topbar">
+      <button md-icon-button (click)="sidenav.toggle()"><md-icon>menu</md-icon></button>
+      <span>平台管理系统</span>
+      <span class="example-spacer"></span>
+      <md-icon>person</md-icon>
+      <span>{{username}}</span>
+      <button md-icon-button color="warn" (click)="loginout()"><md-icon>power_settings_new</md-icon></button>
+    </md-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</md-sidenav-container>
+<app-loading></app-loading>

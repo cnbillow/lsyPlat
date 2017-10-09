@@ -1,0 +1,85 @@
+.nav-vertical a {
+  border-left: 3px solid transparent;
+  color: #fcffff;
+  &.current {
+    background-color: #3d556f;
+    border-left-color: #1976d2;
+  }
+}
+
+label[for*="collapsible-"] {
+  color: #fcffff;
+  border-bottom-color: transparent;
+  border-radius: 0 0 0 0;
+  span {
+    border-left: 3px solid transparent;
+  }
+}
+
+[id*="collapsible-"]:checked+label[for*="collapsible-"] {
+  background-color: #f29a2c;
+}
+
+label[for*="collapsible-"]:before,
+label[for*="collapsible-"]:after {
+  background: #fcffff;
+}
+
+.nav-vertical a:hover,
+.nav-horizontal a:hover,
+.dropdown:hover,
+.nav-vertical[_ngcontent-c3] a.current[_ngcontent-c3] {
+  background-color: #3d556f
+}
+
+.labelSinge {
+  padding: 0 !important;
+  &:after,
+  &:before {
+    content: none;
+  }
+}
+
+.sidenav {
+  background-color: #34495e;
+}
+
+.m-logo-top {
+  background-color: #627b95;
+  height: 60px;
+  padding-top: 15px;
+  margin: 0;
+}
+
+.topbar .mat-icon-button {
+  width: auto!important;
+  margin: 0 25px!important;
+}
+
+.sidenav {
+  overflow: auto;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.nav-super-vertical {
+  height: 100%;
+}
+
+.m-logo {
+  text-align: center;
+  img {
+    width: 100px;
+  }
+}
+
+.menu-child button {
+  padding-left: 60px;
+}
+
+.topbar {
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}

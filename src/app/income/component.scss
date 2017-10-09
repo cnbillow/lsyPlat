@@ -1,0 +1,24 @@
+.cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  md-card {
+    margin: 15px 15px 20px 0;
+    &:nth-child(odd) {
+      background-color: #e91e63;
+      color: #fff
+    }
+    &:nth-child(even) {
+      background-color: #673ab7;
+      color: #fff
+    }
+    span {
+      font-weight: bold;
+      font-size: 1.1em;
+      &:after {
+        content: "元"
+      }
+    }
+  }
+}

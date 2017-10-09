@@ -1,0 +1,38 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-dialog-content>
+    <md-list>
+      <md-list-item>
+        <label class="key">套餐名称</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="name">
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label style="min-width: 8.5em;" class="key">可用经销商数量</label>
+        <md-form-field class="full-width">
+          <input type="number" mdInput formControlName="agencyNumber">
+          <md-error>
+            经销商数量限制最大10000,最小为0
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">金额</label>
+        <md-form-field class="full-width">
+          <input type="number" mdInput formControlName="amount">
+          <md-error>
+            金额限制最大100W,最小为0
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <md-slide-toggle [checked]="enabled" (change)="toggle($event)" color="primary">启用状态</md-slide-toggle>
+      </md-list-item>
+    </md-list>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <span class="example-spacer"></span>
+    <button [disabled]="formModel.invalid" md-raised-button color="primary">确定</button>
+    <button type="button" md-button md-dialog-close>取消</button>
+  </md-dialog-actions>
+</form>

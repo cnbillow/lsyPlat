@@ -1,0 +1,54 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-dialog-content style="width: 40em;">
+    <md-list>
+      <md-list-item>
+        <label class="key">应用ID(apple_id)</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="appId">
+
+          <md-error>
+            请输入应用ID(apple_id)
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">应用密钥(app_secret)</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="appSecret">
+
+          <md-error>
+            请输入应用密钥(app_secret)
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">商户号(mch_id)</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="mchId">
+          <md-error>
+            请输入商户号(mch_id)
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">api密钥(app_key)</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="appKey">
+
+          <md-error>
+            请输入api密钥(app_key)
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+
+      <md-list-item>
+        <md-slide-toggle [checked]="data.valid" (change)="toggle($event)" color="primary">启用状态</md-slide-toggle>
+      </md-list-item>
+    </md-list>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <span class="example-spacer"></span>
+    <button [disabled]="formModel.invalid" md-raised-button color="primary">确定</button>
+    <button type="button" md-button md-dialog-close>取消</button>
+  </md-dialog-actions>
+</form>

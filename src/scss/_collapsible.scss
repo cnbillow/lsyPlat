@@ -1,0 +1,65 @@
+@import './import/colors';
+@import './import/var';
+.collapsible-wrap {
+  background-color: #fff;
+}
+
+[id*="collapsible-"] {
+  display: none;
+  &:checked {
+    ~[class*="collapsible-"][class$="area"] {
+      transform: scaleY(1);
+      height: auto;
+      padding: 10px;
+      margin-bottom: 10px;
+      opacity: 1;
+    }
+    +label,
+    +.head label {
+      &:before {
+        transform: rotate(-45deg);
+      }
+      &:after {
+        transform: rotate(45deg) translateY(-8px);
+      }
+    }
+  }
+}
+
+label[for*="collapsible-"] {
+  text-align: left;
+  width: 100%;
+  position: relative;
+  border-bottom: solid 1px lighten($grey, 30%);
+  color: lighten($black, 15%);
+  border-radius: 3px;
+  padding: 10px;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    background: $grey;
+    transition: all 0.3s ease;
+    right: 20px;
+    top: 45%;
+  }
+  &:before {
+    transform: translateY(-50%) rotate(50deg);
+  }
+  &:after {
+    margin-top: 5px;
+    transform: translateY(-50%) rotate(-50deg);
+  }
+}
+
+[class*="collapsible-"][class$="area"] {
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  height: 0;
+  will-change: height, transform;
+  transition: all 0.3s ease;
+  padding-left: 10px;
+  opacity: 0;
+}

@@ -1,0 +1,40 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-list>
+    <md-list-item>
+      <label class="key">账户名称</label>
+      <md-form-field>
+        <input mdInput formControlName="accountName">
+        <md-error>
+          请输入名称,只能是汉字或字母或数字
+        </md-error>
+      </md-form-field>
+    </md-list-item>
+
+    <md-list-item>
+      <label class="key">开户银行</label>
+      <md-form-field>
+        <input mdInput formControlName="bankName">
+        <md-error>
+          请输入名称,只能是汉字或字母或数字
+        </md-error>
+      </md-form-field>
+    </md-list-item>
+    <md-list-item>
+      <label class="key">银行账户</label>
+      <md-form-field>
+        <input mdInput formControlName="accountNumber">
+        <md-error>
+          请正确输入账户
+        </md-error>
+      </md-form-field>
+    </md-list-item>
+    <md-list-item>
+      <md-slide-toggle [checked]="data.valid" (change)="toggle($event)" color="primary">启用状态</md-slide-toggle>
+    </md-list-item>
+    <md-list-item>
+      <span class="example-spacer"></span>
+      <button type="submit" [disabled]="formModel.invalid" md-raised-button color="primary">确认</button>
+      <button type="button" md-dialog-close md-button color="primary">取消</button>
+    </md-list-item>
+  </md-list>
+</form>

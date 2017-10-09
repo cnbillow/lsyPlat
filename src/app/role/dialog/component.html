@@ -1,0 +1,25 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-list>
+    <md-list-item>
+      <label class="key">角色名称</label>
+      <md-form-field>
+        <input mdInput formControlName="name">
+        <md-error>
+          请输入名称,只能是汉字或字母或数字
+        </md-error>
+      </md-form-field>
+    </md-list-item>
+
+    <div class="roles-box">
+      <label class="key">角色权利</label>
+      <div>
+        <md-checkbox (change)="toggleIds($event.checked,item.id)" [checked]="defalutId(item.id)" color="primary" *ngFor="let item of listIds">{{item.desc}}</md-checkbox>
+      </div>
+    </div>
+    <md-list-item>
+      <span class="example-spacer"></span>
+      <button type="submit" [disabled]="formModel.invalid" md-raised-button color="primary">确认</button>
+      <button type="button" md-dialog-close md-button color="primary">取消</button>
+    </md-list-item>
+  </md-list>
+</form>

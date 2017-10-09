@@ -1,0 +1,14 @@
+<form [formGroup]="formModel">
+  <md-toolbar class="form-toolbar">
+
+    <app-date (OUT)="dateChange($event)"></app-date>
+    <md-form-field style="width: 200px !important;">
+      <input mdInput placeholder="请输入客户名称/反馈关键字" formControlName="keyWord">
+    </md-form-field>
+
+    <button md-button type="button" (click)="search()" color="primary">搜索</button>
+    <span class="example-spacer"></span>
+  </md-toolbar>
+</form>
+<br>
+<app-table [IN]="IN" (OUT)="OUT($event)"></app-table>

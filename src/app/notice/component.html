@@ -1,0 +1,32 @@
+<form [formGroup]="formModel">
+  <md-toolbar class="form-toolbar">
+
+
+    <md-select formControlName="status" placeholder="发布状态">
+      <md-option value="">--全部--</md-option>
+      <md-option *ngFor=" let item of status" [value]="item.k">
+        {{ item.v }}
+      </md-option>
+    </md-select>
+    <md-select formControlName="noticeTypeId" placeholder="分类">
+      <md-option value="">--全部--</md-option>
+      <md-option *ngFor=" let item of types" [value]="item.id">
+        {{ item.name }}
+      </md-option>
+    </md-select>
+    <app-date (OUT)="dateChange($event)"></app-date>
+    <md-form-field>
+      <input mdInput placeholder="请输入通知标题" formControlName="title">
+    </md-form-field>
+    <button md-button type="button" (click)="search()" color="primary">搜索</button>
+
+    <span class="example-spacer"></span>
+    <button md-raised-button type="button" color="accent" [mdMenuTriggerFor]="moreMenu" [disabled]="listIds.length==0">批量操作</button>
+    <button md-raised-button type="button" (click)="add()" color="primary">新增通知</button>
+  </md-toolbar>
+</form>
+<app-table [reset]="tableReset" [IN]="IN" (OUT)="OUT($event)"></app-table>
+<md-menu #moreMenu="mdMenu" [overlapTrigger]="false">
+  <button md-menu-item (click)="pPublish()">批量发布</button>
+  <button md-menu-item (click)="pDelete()">批量删除</button>
+</md-menu>

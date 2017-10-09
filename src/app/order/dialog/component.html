@@ -1,0 +1,20 @@
+<md-dialog-content>
+  <md-list>
+    <md-list-item> <label class="key">流水号</label> <span>{{data.number || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">订单内容</label> <span>{{data.content || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">创建时间</label> <span>{{data.createTime || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">支付时间</label> <span>{{data.payTime || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">原始价格</label> <span>{{data.originalAmount || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">实际价格</label> <span>{{data.actualAmount || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">支付状态</label> <span>{{data.orderStatusValue || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">订单类型</label> <span>{{data.orderTypeValue || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">套餐时间</label> <span>{{data.dateValue || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">套餐配置</label> <span>{{data.comboRemark || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">开始时间</label> <span>{{data.startTime || '--' }}</span></md-list-item>
+    <md-list-item> <label class="key">结束时间</label> <span>{{data.endTime || '--' }}</span></md-list-item>
+  </md-list>
+</md-dialog-content>
+<md-dialog-actions>
+  <span class="example-spacer"></span>
+  <button type="button" md-button md-dialog-close color="primary">关闭</button>
+</md-dialog-actions>

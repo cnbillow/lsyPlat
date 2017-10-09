@@ -1,0 +1,11 @@
+<br>
+<h4 md-dialog-title class="text-center">{{data.title || '--' }}</h4>
+<md-dialog-content>
+  <div class="ql-snow">
+    <div style="min-height:80px;" class="ql-editor" [innerHTML]="data.content | safeHtml"></div>
+  </div>
+</md-dialog-content>
+<md-dialog-actions>
+  <span class="example-spacer"></span>
+  <button type="button" md-button md-dialog-close color="primary">关闭</button>
+</md-dialog-actions>

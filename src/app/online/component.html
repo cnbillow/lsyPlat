@@ -1,0 +1,21 @@
+<div class="cards">
+  <md-card class="current">
+    <h3>微信支付</h3>
+    <div class="toggle" [hidden]="WXStatus===undefined || WXStatus==''">
+      <p>点击更改启用状态：
+        <md-slide-toggle [checked]="WXStatus === true" (change)="toggleWX($event.checked)" color="primary"></md-slide-toggle>
+      </p>
+    </div>
+    <p><button md-raised-button color="primary" (click)="WXConfig()">配置收款账户</button></p>
+  </md-card>
+  <span style="padding:30px"></span>
+  <md-card class=" current ">
+    <h3 class="text-over ">支付宝支付</h3>
+    <div class="toggle" [hidden]="ZFBStatus===undefined || ZFBStatus==''">
+      <p>点击更改启用状态：
+        <md-slide-toggle [checked]="ZFBStatus === true" (change)="toggleZFB($event.checked)" color="primary"></md-slide-toggle>
+      </p>
+    </div>
+    <p><button md-raised-button color="primary" (click)="ZFBConfig()">配置收款账户</button></p>
+  </md-card>
+</div>

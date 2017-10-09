@@ -1,0 +1,293 @@
+/* You can add global styles to this file, and also import other style files */
+
+// node_modules\quill\dist
+@import "./scj.scss";
+@import "./theme.scss";
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/font/material-icons.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.form {
+  width: 400px;
+  display: block;
+}
+
+.logo {
+  width: auto !important;
+  height: auto !important;
+  margin-right: 15px;
+}
+
+.full-width {
+  width: 100%
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+html,
+body,
+material-app,
+md-sidenav-container,
+.my-content,
+.sidenav-content,
+.mat-sidenav-container {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  min-width: 1230px;
+}
+
+.mat-sidenav-content {
+  overflow: hidden !important;
+}
+
+.container md-sidenav {
+  width: 200px;
+}
+
+.mat-icon-button .mat-ripple {
+  overflow: visible;
+}
+
+main {
+  padding: 15px;
+  height: calc(100% - 65px);
+  overflow: auto;
+  background: #f5f5f5;
+  position: relative;
+  .mat-toolbar,
+  .mat-toolbar h1,
+  .mat-toolbar h2,
+  .mat-toolbar h3,
+  .mat-toolbar h4,
+  .mat-toolbar h5,
+  .mat-toolbar h6 {
+    font-size: 14px;
+    font-family: 'microsoft yahei', 'helvetica neue', 'hiragino sans gb', 'stheiti';
+  }
+}
+
+.mat-toolbar-layout {
+  .mat-select-trigger {
+    font-size: 13px;
+    height: 42px;
+    transform: translateY(-2px);
+  }
+}
+
+.mat-toolbar-layout .item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.text-left .mat-figure {
+  justify-content: flex-start !important;
+  border-bottom: 1px dashed #eee;
+  padding: 0 0.5em !important;
+  span {
+    color: #999
+  }
+}
+
+.mat-cell .mat-checkbox-inner-container {
+  height: 16px;
+  width: 16px;
+}
+
+.sidenav label[for*="collapsible-"],
+.sidenav .nav-vertical a {
+  padding: 10px 20px;
+}
+
+.collapsible-wrap .mat-list-item-content {
+  height: auto !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  align-items: flex-start !important;
+  label {
+    margin-top: 10px;
+  }
+  .mat-icon {
+    vertical-align: middle;
+    font-size: 1em;
+    height: 1.2em;
+    width: 1.2em;
+    margin-left: 1em;
+  }
+}
+
+md-list-item.table {
+  .mat-list-item-content {
+    height: auto !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    align-items: flex-start !important;
+  }
+}
+
+.required {
+  position: relative;
+  &:after {
+    content: "*";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+    font-family: inherit;
+    color: #f44336;
+  }
+}
+
+.imt {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #E91E63;
+  margin-right: 1em;
+}
+
+app-mit-city-select {
+  width: 100%;
+  display: block;
+}
+
+.toggles {
+  label {
+    color: #666;
+    font-size: 0.8em;
+    width: 150px;
+  }
+  md-slide-toggle {
+    margin-top: 10px
+  }
+}
+
+.ql-snow .ql-picker-options {
+  right: 0 !important
+}
+
+.fieldsets .mat-list-item-content {
+  height: 41px !important;
+  justify-content: space-between;
+}
+
+.bg {
+  background-image: url("../assets/img/indexbackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 8;
+  &:after {
+    content: "";
+    background-color: rgba(0, 0, 0, .5);
+  }
+  &,
+  &:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+label.key {
+  white-space: nowrap;
+  &:after {
+    content: ":";
+    margin: 0.5em;
+  }
+}
+
+.form-toolbar {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 15px;
+  .mat-form-field-underline {
+    bottom: 0;
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+  md-select,
+  md-form-field {
+    width: 120px !important
+  }
+  >* {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}
+
+app-date {
+  .mat-form-field-underline {
+    bottom: 0;
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+}
+
+md-dialog-container {
+  button+button {
+    margin-left: 15px !important;
+  }
+}
+
+.btn-loading {
+  background-image: url("../assets/img/btnLoading.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.date-clear {
+  background-image: url("../assets/img/remove.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 25px;
+  width: 25px;
+  display: none;
+  cursor: pointer;
+}
+
+.mat-input-infix {
+  &:hover {
+    .date-clear {
+      display: block;
+    }
+  }
+}

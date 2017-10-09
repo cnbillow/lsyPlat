@@ -1,0 +1,13 @@
+<form [formGroup]="formModel" (submit)="search()">
+  <md-toolbar class="form-toolbar">
+
+    <md-form-field style="width: 250px !important;">
+      <input mdInput placeholder="请输入客户名称/流水号" formControlName="keyWord">
+    </md-form-field>
+
+    <button md-button color="primary">搜索</button>
+    <span class="example-spacer"></span>
+    <span>待收款金额：{{unConfirmAmount || '--' }}</span>
+  </md-toolbar>
+</form>
+<app-table [IN]="IN" (OUT)="OUT($event)"></app-table>

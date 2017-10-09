@@ -1,0 +1,44 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-dialog-content style="overflow:visible">
+    <md-list>
+      <md-list-item>
+        <label class="key">发票状态</label>
+        <md-select formControlName="status">
+          <md-option *ngFor="let item of status" [value]="item.k">
+            {{ item.v }}
+          </md-option>
+        </md-select>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">发送方式</label>
+        <md-select formControlName="sendMode" placeholder="--选择方式--">
+          <md-option *ngFor="let item of sendMode" [value]="item">
+            {{ item }}
+          </md-option>
+        </md-select>
+      </md-list-item>
+      <br>
+      <md-list-item>
+        <label class="key">快递公司</label>
+        <md-select formControlName="logisticsCompany">
+          <md-option value="">--无--</md-option>
+          <md-option *ngFor="let item of logisticsCompany" [value]="item">
+            {{ item }}
+          </md-option>
+        </md-select>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">物流单号</label>
+        <md-form-field>
+          <input mdInput formControlName="trackingNumber">
+        </md-form-field>
+      </md-list-item>
+    </md-list>
+  </md-dialog-content>
+  <br>
+  <md-dialog-actions>
+    <span class="example-spacer"></span>
+    <button [disabled]="formModel.invalid" md-raised-button color="primary">确定</button>
+    <button type="button" md-button md-dialog-close>取消</button>
+  </md-dialog-actions>
+</form>

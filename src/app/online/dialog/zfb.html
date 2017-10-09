@@ -1,0 +1,41 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-dialog-content style="width: 40em;">
+    <md-list>
+      <md-list-item>
+        <label class="key">应用ID(apple_id)</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="account">
+          <md-error>
+            请输入应用ID(apple_id)
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">合作者身份 (partner ID)</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="partnerId">
+          <md-error>
+            请输入合作者身份 (partner ID)
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">"安全效验码 (key)</label>
+        <md-form-field class="full-width">
+          <input mdInput formControlName="securityKey">
+          <md-error>
+            请输入安全效验码 (key)
+          </md-error>
+        </md-form-field>
+      </md-list-item>
+      <md-list-item>
+        <md-slide-toggle [checked]="data.valid" (change)="toggle($event)" color="primary">启用状态</md-slide-toggle>
+      </md-list-item>
+    </md-list>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <span class="example-spacer"></span>
+    <button [disabled]="formModel.invalid" md-raised-button color="primary">确定</button>
+    <button type="button" md-button md-dialog-close>取消</button>
+  </md-dialog-actions>
+</form>

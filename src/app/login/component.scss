@@ -1,0 +1,16 @@
+form {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  margin: 25px 0;
+  display: block;
+}

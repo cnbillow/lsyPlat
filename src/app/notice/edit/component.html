@@ -1,0 +1,38 @@
+<form [formGroup]="formModel" (submit)="submit($event)">
+  <md-dialog-content style="overflow:visible">
+    <md-list>
+      <md-list-item>
+        <label class="key">通知名称</label>
+        <md-form-field>
+          <input mdInput formControlName="title">
+          <md-error>
+            请输入名称,只能是汉字或字母或数字
+          </md-error>
+        </md-form-field>
+
+      </md-list-item>
+      <md-list-item>
+        <label class="key">通知类型</label>
+        <md-select formControlName="noticeTypeId">
+          <md-option *ngFor="let item of types" [value]="item.id">
+            {{ item.name }}
+          </md-option>
+        </md-select>
+      </md-list-item>
+      <md-list-item>
+        <label class="key">是否发布</label>
+        <md-slide-toggle (change)="toggleChange($event)" color="primary" formControlName="status"></md-slide-toggle>
+      </md-list-item>
+    </md-list>
+    <div class="body-content">
+      <div class="ued-width" id="openEditor">
+        <textarea class="fadeIn" id="myEditor" name="myEditor">{{editorContent}}</textarea>
+      </div>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <span class="example-spacer"></span>
+    <button [disabled]="formModel.invalid" md-raised-button color="primary">确定</button>
+    <button type="button" md-button md-dialog-close>取消</button>
+  </md-dialog-actions>
+</form>

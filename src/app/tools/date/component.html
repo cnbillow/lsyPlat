@@ -1,0 +1,15 @@
+<md-form-field>
+  <input placeholder="开始时间" [value]="sValue" [max]="maxDay" (dateChange)="sChange($event)" [min]="minDay" readonly mdInput
+    [mdDatepicker]="picker1">
+  <md-datepicker-toggle mdSuffix [for]="picker1"></md-datepicker-toggle>
+  <md-datepicker #picker1></md-datepicker>
+  <span class="date-clear" (click)="clearDate(1,sValue)"></span>
+</md-form-field>
+<md-form-field>
+  <input placeholder="结束时间" [value]="eValue" [max]="maxDay" (dateChange)="eChange($event)" [min]="endDay()" readonly mdInput
+    [mdDatepicker]="picker2">
+  <md-datepicker-toggle mdSuffix [for]="picker2"></md-datepicker-toggle>
+  <md-datepicker #picker2></md-datepicker>
+  <span class="date-clear" (click)="clearDate(2,eValue)"></span>
+</md-form-field>
+<p *ngIf="timeError">开始时间大于结束时间，将置零结束时间</p>

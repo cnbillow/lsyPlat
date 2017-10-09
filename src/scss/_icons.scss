@@ -1,0 +1,13 @@
+@mixin triangle($type, $color, $width) {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  display: inline-block;
+  border-width: $width;
+  border-#{$type}-color: $color;
+}
+
+.triangle-defalut {
+  @include triangle('top', #ccc, 10px);
+}
